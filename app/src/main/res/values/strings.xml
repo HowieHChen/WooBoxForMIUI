@@ -34,6 +34,18 @@
     <string name="hide_new_hd_icon">Hide new HD icon</string>
     <string name="hide_hd_no_service_icon">Hide HD No Service icon</string>
 
+    <string name="hide_carrier_label_one">Hide SIM Card 1 carrier label</string>
+    <string name="hide_carrier_label_two">Hide SIM Card 2 carrier label</string>
+
+    <string name="icon_position">Icon Position</string>
+    <string name="atright_status_bar_icon">Show icons on the right (next to signal icons)</string>
+    <string name="atright_alarm_icon">Alarm icon</string>
+    <string name="atright_nfc_icon">NFC icon</string>
+    <string name="atright_volume_icon">Volume icon</string>
+    <string name="atright_zen_icon">ZEN Icon</string>
+    <string name="atright_headset_icon">Headset icon</string>
+    <string name="atright_network_speed">Network speed</string>
+
     <string name="about">About</string>
     <string name="about_module">About Module</string>
     <string name="verison">Version</string>

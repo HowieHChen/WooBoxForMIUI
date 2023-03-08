@@ -31,6 +31,8 @@
     <string name="hide_small_hd_icon">隐藏 小HD 图标</string>
     <string name="hide_new_hd_icon">隐藏 新HD 图标</string>
     <string name="hide_hd_no_service_icon">隐藏 HD无服务 图标</string>
+    <string name="hide_carrier_label_one">隐藏 SIM卡一 运营商名称</string>
+    <string name="hide_carrier_label_two">隐藏 SIM卡二 运营商名称</string>
     <string name="about">关于</string>
     <string name="about_module">关于模块</string>
     <string name="verison">版本</string>
@@ -248,4 +250,12 @@
     <string name="miuihome_shortcut_add_small_window_title">小窗</string>
     <string name="click_to_view_use_cases">点击查看用例</string>
     <string name="disable_bluetooth_temporarily_off" comment="This function is used to completely close Bluetooth">禁用临时关闭蓝牙</string>
+    <string name="atright_status_bar_icon">图标右移（信号图标旁）</string>
+    <string name="atright_alarm_icon">闹钟 图标</string>
+    <string name="atright_nfc_icon">NFC 图标</string>
+    <string name="atright_volume_icon">音量 图标</string>
+    <string name="atright_zen_icon">勿扰 图标</string>
+    <string name="atright_headset_icon">耳机 图标</string>
+    <string name="icon_position">图标位置</string>
+    <string name="atright_network_speed">网速</string>
 </resources>

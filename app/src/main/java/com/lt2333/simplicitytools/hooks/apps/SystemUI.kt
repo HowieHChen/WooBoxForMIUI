@@ -76,6 +76,8 @@ object SystemUI : AppRegister() {
                     LockScreenClockDisplaySecondsForT, // 锁屏时钟显示秒
                     ShowWifiStandardForT, // 显示 WIFI 角标
                     DisableBluetoothTemporarilyOffForT, //禁用临时蓝牙关闭
+                    HideCarrierLabelForT, // 隐藏运营商名称
+                    IconPositionForT, // 调整图标位置
                 )
             }
 

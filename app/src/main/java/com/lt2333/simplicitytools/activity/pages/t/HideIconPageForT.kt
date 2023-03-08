@@ -1,14 +1,9 @@
 package com.lt2333.simplicitytools.activity.pages.t
 
-import android.view.View
-import android.widget.Switch
-import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
-import cn.fkj233.ui.activity.view.TextSummaryV
 import cn.fkj233.ui.activity.view.TextV
-import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.R
 
 
@@ -104,6 +99,17 @@ class HideIconPageForT : BasePage() {
             SwitchV("hide_volume_icon")
         )
         TextWithSwitch(TextV(textId = R.string.hide_zen_icon), SwitchV("hide_zen_icon"))
+
+        Line()
+        TitleText(textId = R.string.other)
+        TextWithSwitch(
+            TextV(textId = R.string.hide_carrier_label_one),
+            SwitchV("hide_carrier_label_one")
+        )
+        TextWithSwitch(
+            TextV(textId = R.string.hide_carrier_label_two),
+            SwitchV("hide_carrier_label_two")
+        )
     }
 
 }

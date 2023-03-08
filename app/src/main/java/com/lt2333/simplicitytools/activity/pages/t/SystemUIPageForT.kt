@@ -59,6 +59,7 @@ import com.lt2333.simplicitytools.R
             when (flags) {
                 1 -> (view as Switch).isEnabled = data as Boolean
                 2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                3 -> view.visibility = if (data as Boolean) View.GONE else View.VISIBLE
             }
         }
 
@@ -80,6 +81,15 @@ import com.lt2333.simplicitytools.R
         SeekBarWithText(
             "status_bar_right_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
+
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.icon_position,
+                onClickListener = { showFragment("icon_position") }
+            ),
+            dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(3)
+        )
+
         Line()
         TitleText(textId = R.string.status_bar_clock_format)
 
