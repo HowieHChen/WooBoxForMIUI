@@ -78,6 +78,8 @@ object SystemUI : AppRegister() {
                     DisableBluetoothTemporarilyOffForT, //禁用临时蓝牙关闭
                     HideCarrierLabelForT, // 隐藏运营商名称
                     IconPositionForT, // 调整图标位置
+                    OptimizeMusicNotificationForT, // 优化音乐通知
+                    OptimizeMusicColorForT, // 优化音乐通知颜色
                 )
             }
 

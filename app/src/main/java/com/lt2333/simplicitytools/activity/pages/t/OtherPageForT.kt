@@ -8,8 +8,11 @@ import android.widget.Toast
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.SpinnerV
 import cn.fkj233.ui.activity.view.SwitchV
 import cn.fkj233.ui.activity.view.TextSummaryV
+import cn.fkj233.ui.activity.view.TextV
+import cn.fkj233.ui.dialog.MIUIDialog
 import com.lt2333.simplicitytools.R
 
 
@@ -192,6 +195,92 @@ class OtherPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.pkg_installer_summary),
             SwitchV("pkg_installer_count_checking")
+        )
+        Line()
+        TitleText(textId = R.string.taplus)
+        val taplusUseBrowserBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "taplus_use_browser", false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        val customTaplusSearch: HashMap<Int, String> = hashMapOf<Int, String>().also {
+            it[0] = getString(R.string.default1)
+            it[1] = getString(R.string.taplus_serach_baidu)
+            it[2] = getString(R.string.taplus_serach_sogou)
+            it[3] = getString(R.string.taplus_serach_bing)
+            it[4] = getString(R.string.taplus_serach_google)
+            it[5] = getString(R.string.taplus_serach_custom)
+        }
+        val taplusSearchBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean("taplus_use_browser", false) && (MIUIActivity.safeSP.getInt("taplus_search_engine", 0) == 5)
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = (data as Boolean)
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.taplus_use_browser),
+            SwitchV("taplus_use_browser") {
+                taplusUseBrowserBinding.binding.Send().send(it)
+                taplusSearchBinding.binding.Send().send(it && (MIUIActivity.safeSP.getInt("taplus_search_engine", 0) == 5))
+            }
+        )
+        TextWithSpinner(TextV(textId = R.string.taplus_serach), SpinnerV(
+            customTaplusSearch[MIUIActivity.safeSP.getInt(
+                "taplus_search_engine", 0
+            )].toString()
+        ) {
+            add(customTaplusSearch[0].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 0)
+                taplusSearchBinding.binding.Send().send(false)
+            }
+            add(customTaplusSearch[1].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 1)
+                taplusSearchBinding.binding.Send().send(false)
+            }
+            add(customTaplusSearch[2].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 2)
+                taplusSearchBinding.binding.Send().send(false)
+            }
+            add(customTaplusSearch[3].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 3)
+                taplusSearchBinding.binding.Send().send(false)
+            }
+            add(customTaplusSearch[4].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 4)
+                taplusSearchBinding.binding.Send().send(false)
+            }
+            add(customTaplusSearch[5].toString()) {
+                MIUIActivity.safeSP.putAny("taplus_search_engine", 5)
+                taplusSearchBinding.binding.Send().send(true)
+            }
+        }, dataBindingRecv = taplusUseBrowserBinding.binding.getRecv(2))
+        TextSummaryWithArrow(
+            TextSummaryV(textId = R.string.taplus_serach_custom_title, onClickListener = {
+                MIUIDialog(activity) {
+                    setTitle(R.string.taplus_serach_custom_title)
+                    setEditText(
+                        "", "https://example.com/s?q=%s"
+                    )
+                    setLButton(textId = R.string.cancel) {
+                        dismiss()
+                    }
+                    setRButton(textId = R.string.Done) {
+                        if (getEditText() != "") {
+                            MIUIActivity.safeSP.putAny(
+                                "taplus_search_engine_url", getEditText()
+                            )
+                        }
+                        dismiss()
+                    }
+                }.show()
+            }), dataBindingRecv = taplusSearchBinding.binding.getRecv(2)
         )
     }
 

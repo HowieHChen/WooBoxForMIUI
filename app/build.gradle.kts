@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.lt2333.simplicitytools"
+        applicationId = "dev.lackluster.miuitoolkit"
         minSdk = 31
         targetSdk = 33
         versionCode = 75

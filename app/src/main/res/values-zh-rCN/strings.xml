@@ -258,4 +258,17 @@
     <string name="atright_headset_icon">耳机 图标</string>
     <string name="icon_position">图标位置</string>
     <string name="atright_network_speed">网速</string>
+    <string name="optimize_music_notification">优化 MIUI 音乐通知</string>
+    <string name="optimize_music_notification_summary">修复 MIUI 音乐通知的异常动画和专辑封面不匹配</string>
+    <string name="optimize_music_color">优化 MIUI 音乐通知的颜色</string>
+    <string name="optimize_music_color_summary">MIUI 音乐通知使用莫奈取色</string>
+    <string name="taplus">传送门</string>
+    <string name="taplus_serach_baidu">百度</string>
+    <string name="taplus_serach_sogou">搜狗</string>
+    <string name="taplus_serach_bing">必应</string>
+    <string name="taplus_serach_google">谷歌</string>
+    <string name="taplus_serach_custom">自定义</string>
+    <string name="taplus_serach">搜索引擎</string>
+    <string name="taplus_serach_custom_title">自定义搜索引擎</string>
+    <string name="taplus_use_browser">使用浏览器搜索</string>
 </resources>

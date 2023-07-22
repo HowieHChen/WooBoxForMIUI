@@ -574,6 +574,20 @@ import com.lt2333.simplicitytools.R
             ),
             SwitchV("can_notification_slide"),
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.optimize_music_notification,
+                tipsId = R.string.optimize_music_notification_summary,
+            ),
+            SwitchV("optimize_music_notification"),
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.optimize_music_color,
+                tipsId = R.string.optimize_music_color_summary,
+            ),
+            SwitchV("optimize_music_color"),
+        )
         Line()
         TitleText(textId = R.string.control_center)
         TextSummaryWithSwitch(
