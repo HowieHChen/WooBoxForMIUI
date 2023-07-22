@@ -277,4 +277,6 @@
     <string name="taplus_serach">Search Engine</string>
     <string name="taplus_serach_custom_title">Custom search engine</string>
     <string name="taplus_use_browser">Search using browser</string>
+    <string name="taplus_landscape">Enable in landscape</string>
+    <string name="taplus_hide_shopping">Hide shopping button</string>
 </resources>

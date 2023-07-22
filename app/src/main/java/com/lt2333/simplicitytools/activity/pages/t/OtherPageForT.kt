@@ -282,6 +282,14 @@ class OtherPageForT : BasePage() {
                 }.show()
             }), dataBindingRecv = taplusSearchBinding.binding.getRecv(2)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.taplus_landscape),
+            SwitchV("taplus_landscape")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.taplus_hide_shopping),
+            SwitchV("taplus_hide_shopping")
+        )
     }
 
 }

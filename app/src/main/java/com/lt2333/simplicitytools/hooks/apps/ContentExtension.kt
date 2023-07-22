@@ -3,15 +3,15 @@ package com.lt2333.simplicitytools.hooks.apps
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import com.github.kyuubiran.ezxhelper.utils.Log
-import com.github.kyuubiran.ezxhelper.utils.findMethod
-import com.github.kyuubiran.ezxhelper.utils.hookBefore
-import com.github.kyuubiran.ezxhelper.utils.hookReplace
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.github.kyuubiran.ezxhelper.utils.*
 import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.callMethod
+import com.lt2333.simplicitytools.utils.getObjectField
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
-import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 object ContentExtension : AppRegister()  {
@@ -29,6 +29,7 @@ object ContentExtension : AppRegister()  {
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
+
         hasEnable("taplus_use_browser") {
             findMethod("com.miui.contentextension.utils.AppsUtils") {
                 name == "openGlobalSearch"
@@ -54,6 +55,27 @@ object ContentExtension : AppRegister()  {
                 }
                 context.callMethod("startActivity", intent)
                 it.result = 0
+            }
+        }
+
+        hasEnable("taplus_landscape") {
+            findMethod("com.miui.contentextension.services.TextContentExtensionService") {
+                name == "isScreenPortrait"
+            }.hookBefore {
+                it.result = true
+            }
+        }
+
+        hasEnable("taplus_hide_shopping") {
+            findMethod("com.miui.contentextension.text.cardview.TaplusRecognitionExpandedImageCard") {
+                name == "updateLayout"
+            }.hookAfter {
+                val shopping = it.thisObject.getObjectField("mShopping") as TextView
+                shopping.visibility = View.GONE
+                val scanQR = it.thisObject.getObjectField("mScanQR") as TextView
+                val layoutParams = scanQR.layoutParams as LinearLayout.LayoutParams
+                layoutParams.marginEnd = layoutParams.marginEnd * 2
+                scanQR.layoutParams = layoutParams
             }
         }
     }

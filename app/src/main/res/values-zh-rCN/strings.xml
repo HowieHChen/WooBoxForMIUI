@@ -271,4 +271,6 @@
     <string name="taplus_serach">搜索引擎</string>
     <string name="taplus_serach_custom_title">自定义搜索引擎</string>
     <string name="taplus_use_browser">使用浏览器搜索</string>
+    <string name="taplus_landscape">在横屏时启用</string>
+    <string name="taplus_hide_shopping">隐藏购物按钮</string>
 </resources>
