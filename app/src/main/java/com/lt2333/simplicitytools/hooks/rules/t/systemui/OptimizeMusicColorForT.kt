@@ -3,17 +3,21 @@ package com.lt2333.simplicitytools.hooks.rules.t.systemui
 import android.content.res.ColorStateList
 import android.widget.ImageView
 import com.github.kyuubiran.ezxhelper.utils.*
+import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.callMethod
 import com.lt2333.simplicitytools.utils.getObjectField
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
+import de.robv.android.xposed.XposedBridge
 
 object OptimizeMusicColorForT : HookRegister() {
 
     private var mediaViewHolder: Any? = null
 
     override fun init() {
-        hasEnable("optimize_music_color") {
+        hasEnable("optimize_music_color", extraCondition = {
+            XSPUtils.getBoolean("optimize_music_notification", false)
+        }) {
             findMethod("com.android.systemui.statusbar.notification.mediacontrol.MiuiMediaControlPanel") {
                 name == "setForegroundColors"
             }.hookBefore {
@@ -55,8 +59,8 @@ object OptimizeMusicColorForT : HookRegister() {
                 name == "updateColorScheme"
             }.hookBefore {
                 try {
-                    mediaViewHolder = (it.thisObject.getObjectField("this$0"))?.getObjectField("mediaViewHolder")
-                    val colorSchemeTransition: Int = it.args[0] as Int
+                    mediaViewHolder = (it.thisObject.getObjectField("mediaViewHolder"))
+                    val colorSchemeTransition = it.args[0]
                     val objs = arrayOf(
                         it.thisObject.getObjectField("surfaceColor"),
                         it.thisObject.getObjectField("colorSeamless"),
@@ -72,7 +76,7 @@ object OptimizeMusicColorForT : HookRegister() {
                     }
                 }
                 catch (tout: Throwable) {
-                    Log.i("pre updateColorScheme failed!")
+                    XposedBridge.log("pre updateColorScheme failed!\n${tout.toString()}")
                 }
             }
         }

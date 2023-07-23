@@ -193,11 +193,24 @@ class OtherPageForT : BasePage() {
         Line()
         TitleText(textId = R.string.pkg_installer)
         TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.pkg_disable_ad),
+            SwitchV("pkg_installer_disable_ad")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.pkg_disable_risk),
+            SwitchV("pkg_installer_disable_risk")
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.pkg_disable_safemode_tip),
+            SwitchV("pkg_installer_disable_safemode_tip")
+        )
+        TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.pkg_installer_summary),
             SwitchV("pkg_installer_count_checking")
         )
+
         Line()
-        TitleText(textId = R.string.taplus)
+        TitleText(textId = R.string.scope_taplus)
         val taplusUseBrowserBinding = GetDataBinding({
             MIUIActivity.safeSP.getBoolean(
                 "taplus_use_browser", false
@@ -289,6 +302,18 @@ class OtherPageForT : BasePage() {
         TextSummaryWithSwitch(
             TextSummaryV(textId = R.string.taplus_hide_shopping),
             SwitchV("taplus_hide_shopping")
+        )
+        Line()
+        TitleText(textId = R.string.scope_browser)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.browser_debug_mode),
+            SwitchV("browser_debug_mode")
+        )
+        Line()
+        TitleText(textId = R.string.scope_incallui)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.incallui_hide_crbt),
+            SwitchV("incallui_hide_crbt")
         )
     }
 

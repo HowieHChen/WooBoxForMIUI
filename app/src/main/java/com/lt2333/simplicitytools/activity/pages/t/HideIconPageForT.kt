@@ -1,5 +1,8 @@
 package com.lt2333.simplicitytools.activity.pages.t
 
+import android.view.View
+import android.widget.Switch
+import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
 import cn.fkj233.ui.activity.view.SwitchV
@@ -67,7 +70,10 @@ class HideIconPageForT : BasePage() {
             TextV(textId = R.string.hide_mobile_type_icon),
             SwitchV("hide_mobile_type_icon")
         )
-        TextWithSwitch(TextV(textId = R.string.hide_wifi_icon), SwitchV("hide_wifi_icon"))
+        TextWithSwitch(
+            TextV(textId = R.string.hide_wifi_icon),
+            SwitchV("hide_wifi_icon")
+        )
         TextWithSwitch(
             TextV(textId = R.string.hide_wifi_activity_icon),
             SwitchV("hide_wifi_activity_icon")

@@ -574,12 +574,22 @@ import com.lt2333.simplicitytools.R
             ),
             SwitchV("can_notification_slide"),
         )
+        val musicNotificationBinding = GetDataBinding({
+            MIUIActivity.safeSP.getBoolean(
+                "optimize_music_notification", false
+            )
+        }) { view, flags, data ->
+            when (flags) {
+                1 -> (view as Switch).isEnabled = data as Boolean
+                2 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+            }
+        }
         TextSummaryWithSwitch(
             TextSummaryV(
                 textId = R.string.optimize_music_notification,
                 tipsId = R.string.optimize_music_notification_summary,
             ),
-            SwitchV("optimize_music_notification"),
+            SwitchV("optimize_music_notification", dataBindingSend = musicNotificationBinding.bindingSend),
         )
         TextSummaryWithSwitch(
             TextSummaryV(
@@ -587,6 +597,7 @@ import com.lt2333.simplicitytools.R
                 tipsId = R.string.optimize_music_color_summary,
             ),
             SwitchV("optimize_music_color"),
+            dataBindingRecv = musicNotificationBinding.binding.getRecv(2)
         )
         Line()
         TitleText(textId = R.string.control_center)

@@ -4,6 +4,7 @@ import android.graphics.drawable.Icon;
 import android.widget.TextView
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.callMethod
 import com.lt2333.simplicitytools.utils.getObjectFieldAs
 import com.lt2333.simplicitytools.utils.hasEnable

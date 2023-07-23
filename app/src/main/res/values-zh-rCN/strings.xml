@@ -262,7 +262,7 @@
     <string name="optimize_music_notification_summary">修复 MIUI 音乐通知的异常动画和专辑封面不匹配</string>
     <string name="optimize_music_color">优化 MIUI 音乐通知的颜色</string>
     <string name="optimize_music_color_summary">MIUI 音乐通知使用莫奈取色</string>
-    <string name="taplus">传送门</string>
+    <string name="scope_taplus">传送门</string>
     <string name="taplus_serach_baidu">百度</string>
     <string name="taplus_serach_sogou">搜狗</string>
     <string name="taplus_serach_bing">必应</string>
@@ -273,4 +273,11 @@
     <string name="taplus_use_browser">使用浏览器搜索</string>
     <string name="taplus_landscape">在横屏时启用</string>
     <string name="taplus_hide_shopping">隐藏购物按钮</string>
+    <string name="scope_browser">浏览器</string>
+    <string name="browser_debug_mode">启用浏览器的开发者模式</string>
+    <string name="scope_incallui">电话</string>
+    <string name="incallui_hide_crbt">隐藏视频彩铃</string>
+    <string name="pkg_disable_ad">禁用推广</string>
+    <string name="pkg_disable_risk">禁用风险监测</string>
+    <string name="pkg_disable_safemode_tip">禁用安全守护提示</string>
 </resources>

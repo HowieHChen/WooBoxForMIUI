@@ -27,6 +27,8 @@ class MainHook : EasyXposedInit() {
         RearDisplay, //背屏
         PackageInstaller, // 应用包管理组件
         ContentExtension, // 传送门
+        Browser, // 浏览器
+        InCallUI, // 通话界面
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {

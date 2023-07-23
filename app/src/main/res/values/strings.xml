@@ -268,7 +268,7 @@
     <string name="optimize_music_notification_summary">Fixed abnormal animation and mismatched album art for MIUI music notifications</string>
     <string name="optimize_music_color">Optimize the Color of MIUI Music Notification</string>
     <string name="optimize_music_color_summary">Music notifications use Monet colors</string>
-    <string name="taplus">Taplus</string>
+    <string name="scope_taplus">Taplus</string>
     <string name="taplus_serach_baidu">Baidu</string>
     <string name="taplus_serach_sogou">Sogou</string>
     <string name="taplus_serach_bing">Bing</string>
@@ -279,4 +279,11 @@
     <string name="taplus_use_browser">Search using browser</string>
     <string name="taplus_landscape">Enable in landscape</string>
     <string name="taplus_hide_shopping">Hide shopping button</string>
+    <string name="scope_browser">Browser</string>
+    <string name="browser_debug_mode">Enable browser developer mode</string>
+    <string name="scope_incallui">Phone</string>
+    <string name="incallui_hide_crbt">Hide personalized colorful ring back tone</string>
+    <string name="pkg_disable_ad">Disable promotion</string>
+    <string name="pkg_disable_risk">Disable risk detection</string>
+    <string name="pkg_disable_safemode_tip">Disable the security guard prompt</string>
 </resources>

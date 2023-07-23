@@ -1,7 +1,9 @@
 package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
+import android.graphics.drawable.Icon
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
 import de.robv.android.xposed.XC_MethodHook

@@ -15,5 +15,7 @@
         <item>com.xiaomi.misubscreenui</item>
         <item>com.miui.packageinstaller</item>
         <item>com.miui.contentextension</item>
+        <item>com.android.browser</item>
+        <item>"com.android.incallui"</item>
     </string-array>
 </resources>

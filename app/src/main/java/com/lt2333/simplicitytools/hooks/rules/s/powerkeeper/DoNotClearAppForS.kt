@@ -47,10 +47,10 @@ object DoNotClearAppForS : HookRegister() {
             }
         }
 
-        findMethod("com.miui.powerkeeper.statemachine.SleepModeController\$SleepProcessHelper") {
-            name == "killAppsInSleep"
-        }.hookBefore {
-            hasEnable("do_not_clear_app") {
+        hasEnable("do_not_clear_app") {
+            findMethod("com.miui.powerkeeper.statemachine.SleepModeController\$SleepProcessHelper") {
+                name == "killAppsInSleep"
+            }.hookBefore {
                 it.result = null
             }
         }
