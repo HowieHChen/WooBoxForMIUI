@@ -286,4 +286,8 @@
     <string name="pkg_disable_ad">Disable promotion</string>
     <string name="pkg_disable_risk">Disable risk detection</string>
     <string name="pkg_disable_safemode_tip">Disable the security guard prompt</string>
+    <string name="miuihome_home_anim_enhance">Enhanced MIUI launcher animation</string>
+    <string name="miuihome_home_anim_enhance_summary">Fix animation break and icon follow animation</string>
+    <string name="miuihome_unlock_anim_enhance">Optimize unlock animation</string>
+    <string name="miuihome_unlock_anim_enhance_summary">Optimize the animation of the icon when unlocking</string>
 </resources>

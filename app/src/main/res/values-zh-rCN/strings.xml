@@ -280,4 +280,8 @@
     <string name="pkg_disable_ad">禁用推广</string>
     <string name="pkg_disable_risk">禁用风险监测</string>
     <string name="pkg_disable_safemode_tip">禁用安全守护提示</string>
+    <string name="miuihome_home_anim_enhance">MIUI 桌面动画增强</string>
+    <string name="miuihome_home_anim_enhance_summary">修复打断动画和图标跟随动画</string>
+    <string name="miuihome_unlock_anim_enhance">优化解锁动画</string>
+    <string name="miuihome_unlock_anim_enhance_summary">优化解锁时图标飞入动画</string>
 </resources>

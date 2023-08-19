@@ -8,6 +8,8 @@ import com.lt2333.simplicitytools.hooks.rules.all.miuihome.ModifyRecentViewRemov
 import com.lt2333.simplicitytools.hooks.rules.all.miuihome.RemoveSmallWindowRestrictionForMiuiHomeForAll
 import com.lt2333.simplicitytools.hooks.rules.all.miuihome.ScrollIconNameForAll
 import com.lt2333.simplicitytools.hooks.rules.all.miuihome.ShortcutAddSmallWindowForAll
+import com.lt2333.simplicitytools.hooks.rules.t.miuihome.HomeAnimEnhanceForT
+import com.lt2333.simplicitytools.hooks.rules.t.miuihome.UnlockAnimEnhanceForT
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -26,6 +28,8 @@ object MiuiHome : AppRegister() {
                     ScrollIconNameForAll, //滚动显示应用标题
                     RemoveSmallWindowRestrictionForMiuiHomeForAll, //取消小窗限制
                     ShortcutAddSmallWindowForAll, //快捷菜单添加小窗
+                    HomeAnimEnhanceForT, // 桌面动画增强
+                    UnlockAnimEnhanceForT, // 解锁动画增强
                 )
             }
 

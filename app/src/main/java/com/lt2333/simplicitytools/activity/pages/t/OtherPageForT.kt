@@ -51,6 +51,14 @@ class OtherPageForT : BasePage() {
             TextSummaryV(textId = R.string.miuihome_scroll_icon_name, tipsId = R.string.miuihome_scroll_icon_name_summary),
             SwitchV("miuihome_scroll_icon_name", false)
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.miuihome_home_anim_enhance, tipsId = R.string.miuihome_home_anim_enhance_summary),
+            SwitchV("home_anim_enhance", false)
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.miuihome_unlock_anim_enhance, tipsId = R.string.miuihome_unlock_anim_enhance_summary),
+            SwitchV("unlock_anim_enhance", false)
+        )
         Line()
         TitleText(textId = R.string.scope_powerkeeper)
         TextSummaryWithSwitch(
