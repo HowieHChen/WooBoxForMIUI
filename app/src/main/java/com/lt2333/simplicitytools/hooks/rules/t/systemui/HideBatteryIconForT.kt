@@ -1,5 +1,7 @@
 package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
+import android.content.res.Resources
+import android.content.res.XResources
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -10,6 +12,7 @@ import com.github.kyuubiran.ezxhelper.utils.getObjectAs
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
+import de.robv.android.xposed.XposedBridge
 
 object HideBatteryIconForT : HookRegister() {
 
@@ -25,11 +28,15 @@ object HideBatteryIconForT : HookRegister() {
                         View.GONE
                 }
             }
-            //隐藏电池内的百分比
-            hasEnable("hide_battery_percentage_icon") {
-                (it.thisObject.getObjectAs<TextView>("mBatteryPercentMarkView")).textSize = 0F
+            //修改电池百分号大小
+            hasEnable("change_battery_percentage_icon_size") {
+                val batteryPercentView = it.thisObject.getObjectAs<TextView>("mBatteryPercentView")
+                val batteryPercentMarkView = it.thisObject.getObjectAs<TextView>("mBatteryPercentMarkView")
+                batteryPercentMarkView.layoutParams = batteryPercentView.layoutParams
+                batteryPercentMarkView.typeface = batteryPercentView.typeface
+                batteryPercentMarkView.setTextSize(0, batteryPercentView.textSize)
             }
-            //隐藏电池百分号
+            //隐藏电池内的百分比
             hasEnable("hide_battery_percentage_icon") {
                 (it.thisObject.getObjectAs<TextView>("mBatteryPercentMarkView")).textSize = 0F
             }

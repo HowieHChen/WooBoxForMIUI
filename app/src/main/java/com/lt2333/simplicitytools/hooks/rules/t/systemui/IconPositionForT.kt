@@ -1,16 +1,56 @@
 package com.lt2333.simplicitytools.hooks.rules.t.systemui
 
+import android.text.Selection.moveLeft
+import com.github.kyuubiran.ezxhelper.utils.findConstructor
 import com.github.kyuubiran.ezxhelper.utils.findMethod
 import com.github.kyuubiran.ezxhelper.utils.hookAfter
 import com.github.kyuubiran.ezxhelper.utils.hookBefore
+import com.github.kyuubiran.ezxhelper.utils.paramCount
 import com.github.kyuubiran.ezxhelper.utils.putObject
+import com.lt2333.simplicitytools.utils.XSPUtils
 import com.lt2333.simplicitytools.utils.getObjectField
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
+import de.robv.android.xposed.XposedBridge
+import java.util.Arrays
+
 
 object IconPositionForT : HookRegister() {
+    private val isCompatibilityMode = XSPUtils.getBoolean("layout_compatibility_mode", false)
 
     override fun init() {
+        hasEnable("swap_wifi_signal") {
+            val signalIcons: Array<String> = arrayOf(
+                "hotspot",
+                "slave_wifi",
+                "wifi",
+                "demo_wifi",
+                "no_sim",
+                "mobile",
+                "demo_mobile",
+                "airplane"
+            )
+            val signalRelatedIcons = ArrayList(Arrays.asList<String>(*signalIcons))
+            findConstructor("com.android.systemui.statusbar.phone.StatusBarIconList") {
+                paramCount == 1
+            }.hookBefore {
+                val isRightController = "StatusBarIconControllerImpl" == it.thisObject.javaClass.simpleName
+                if (isRightController) {
+                    val allStatusIcons = ArrayList<String>(Arrays.asList<String>(*it.args[0] as Array<String>))
+                    var startIndex = allStatusIcons.indexOf("no_sim")
+                    val endIndex = allStatusIcons.indexOf("demo_wifi") + 1
+                    val removedIcons = allStatusIcons.subList(startIndex, endIndex)
+                    removedIcons.clear()
+                    startIndex = allStatusIcons.indexOf("ethernet") + 1
+                    allStatusIcons.addAll(startIndex, signalRelatedIcons)
+                    it.args[0] = allStatusIcons.toTypedArray<String>()
+                }
+            }
+        }
+
+        if (isCompatibilityMode)
+            return
+
         findMethod("com.android.systemui.statusbar.phone.MiuiDripLeftStatusBarIconControllerImpl") {
             name == "setIconVisibility" && parameterCount == 2
         }.hookBefore {
@@ -85,6 +125,7 @@ object IconPositionForT : HookRegister() {
                 }
             }
         }
+
     }
 
 }

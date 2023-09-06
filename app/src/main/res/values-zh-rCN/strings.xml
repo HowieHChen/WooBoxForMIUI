@@ -284,4 +284,6 @@
     <string name="miuihome_home_anim_enhance_summary">修复打断动画和图标跟随动画</string>
     <string name="miuihome_unlock_anim_enhance">优化解锁动画</string>
     <string name="miuihome_unlock_anim_enhance_summary">优化解锁时图标飞入动画</string>
+    <string name="swap_wifi_signal">交换 WIFI 和信号图标</string>
+    <string name="change_battery_percentage_icon_size">统一电量百分比数字与符号 (%) 样式</string>
 </resources>

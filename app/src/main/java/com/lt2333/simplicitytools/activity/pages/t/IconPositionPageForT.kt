@@ -34,6 +34,7 @@ import com.lt2333.simplicitytools.R
             TextV(textId = R.string.atright_network_speed),
             SwitchV("atright_network_speed")
         )
+
     }
 
 }

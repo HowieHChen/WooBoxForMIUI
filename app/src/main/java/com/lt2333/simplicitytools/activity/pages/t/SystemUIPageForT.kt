@@ -82,6 +82,11 @@ import com.lt2333.simplicitytools.R
             "status_bar_right_margin", 0, 300, 0, dataBindingRecv = layoutCompatibilityBinding.binding.getRecv(2)
         )
 
+        TextWithSwitch(
+            TextV(textId = R.string.swap_wifi_signal),
+            SwitchV("swap_wifi_signal")
+        )
+
         TextSummaryWithArrow(
             TextSummaryV(
                 textId = R.string.icon_position,
@@ -453,6 +458,11 @@ import com.lt2333.simplicitytools.R
                     }
                 }.show()
             })
+        )
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.change_battery_percentage_icon_size, tipsId = R.string.change_battery_percentage_icon_size_summary
+            ), SwitchV("change_battery_percentage_icon_size")
         )
         TextSummaryWithSwitch(
             TextSummaryV(

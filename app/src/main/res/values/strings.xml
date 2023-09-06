@@ -290,4 +290,7 @@
     <string name="miuihome_home_anim_enhance_summary">Fix animation break and icon follow animation</string>
     <string name="miuihome_unlock_anim_enhance">Optimize unlock animation</string>
     <string name="miuihome_unlock_anim_enhance_summary">Optimize the animation of the icon when unlocking</string>
+    <string name="swap_wifi_signal">Swap WIFI and signal icons</string>
+    <string name="change_battery_percentage_icon_size">Harmonized power percentage number and symbol (%) style</string>
+    <string name="change_battery_percentage_icon_size_summary" translatable="false">@string/hide_battery_percentage_icon_summary</string>
 </resources>
