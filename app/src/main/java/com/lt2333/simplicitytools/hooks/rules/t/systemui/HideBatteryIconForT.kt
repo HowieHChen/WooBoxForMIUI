@@ -35,6 +35,7 @@ object HideBatteryIconForT : HookRegister() {
                 batteryPercentMarkView.layoutParams = batteryPercentView.layoutParams
                 batteryPercentMarkView.typeface = batteryPercentView.typeface
                 batteryPercentMarkView.setTextSize(0, batteryPercentView.textSize)
+                batteryPercentMarkView.setPadding(0,0,0,0)
             }
             //隐藏电池内的百分比
             hasEnable("hide_battery_percentage_icon") {
