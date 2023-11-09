@@ -9,6 +9,7 @@ import com.lt2333.simplicitytools.utils.callMethod
 import com.lt2333.simplicitytools.utils.getObjectFieldAs
 import com.lt2333.simplicitytools.utils.hasEnable
 import com.lt2333.simplicitytools.utils.xposed.base.HookRegister
+import de.robv.android.xposed.XposedBridge
 
 object OptimizeMusicNotificationForT : HookRegister() {
 
@@ -16,15 +17,20 @@ object OptimizeMusicNotificationForT : HookRegister() {
 
     override fun init() {
         hasEnable("optimize_music_notification") {
-            findMethod("com.android.systemui.media.MediaControlPanel") {
-                name == "bindArtworkAndColors"
-            }.hookBefore {
-                val icon = it.args[0].callMethod("getArtwork") as Icon
-                if ((icon?.equals(lastArtwork))?:false) {
-                    return@hookBefore
+            try {
+                findMethod("com.android.systemui.media.MediaControlPanel") {
+                    name == "bindArtworkAndColors"
+                }.hookBefore {
+                    val icon = it.args[0].callMethod("getArtwork") as Icon
+                    if ((icon?.equals(lastArtwork))?:false) {
+                        return@hookBefore
+                    }
+                    lastArtwork = icon
+                    it.args[2] = true
                 }
-                lastArtwork = icon
-                it.args[2] = true
+            }
+            catch (tout: Throwable) {
+                XposedBridge.log("Hook bindArtworkAndColors failed!\n${tout.toString()}")
             }
 
             findMethod("com.android.systemui.statusbar.notification.mediacontrol.MiuiMediaControlPanel") {
