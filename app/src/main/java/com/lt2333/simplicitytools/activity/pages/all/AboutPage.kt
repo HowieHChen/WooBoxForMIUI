@@ -5,6 +5,7 @@ import android.net.Uri
 import android.widget.Toast
 import cn.fkj233.ui.activity.annotation.BMPage
 import cn.fkj233.ui.activity.data.BasePage
+import cn.fkj233.ui.activity.view.ImageTextV
 import cn.fkj233.ui.activity.view.TextSummaryV
 import com.lt2333.simplicitytools.BuildConfig
 import com.lt2333.simplicitytools.R
@@ -16,7 +17,7 @@ import java.util.*
 class AboutPage : BasePage() {
 
     override fun onCreate() {
-        Author(
+        ImageTextV(
             authorHead = getDrawable(R.drawable.app_icon)!!,
             authorName = getString(R.string.app_name),
             authorTips = "${
@@ -25,7 +26,7 @@ class AboutPage : BasePage() {
                     Locale.getDefault()
                 ).format(BuildConfig.BUILD_TIME.toLong())
             }\n${BuildConfig.VERSION_NAME}(${BuildConfig.BUILD_TYPE})",
-            onClickListener = {
+            onClick = {
                 try {
                     activity.startActivity(
                         Intent(
@@ -44,11 +45,11 @@ class AboutPage : BasePage() {
             })
         Line()
         TitleText(text = getString(R.string.developer))
-        Author(
+        ImageTextV(
             authorHead = getDrawable(R.drawable.lt)!!,
             authorName = "乌堆小透明",
             authorTips = "LittleTurtle2333",
-            onClickListener = {
+            onClick = {
                 try {
                     activity.startActivity(
                         Intent(

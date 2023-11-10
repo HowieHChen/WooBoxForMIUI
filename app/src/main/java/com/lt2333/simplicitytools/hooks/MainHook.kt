@@ -29,6 +29,7 @@ class MainHook : EasyXposedInit() {
         ContentExtension, // 传送门
         Browser, // 浏览器
         InCallUI, // 通话界面
+        MiShare, // 小米互传
     )
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {

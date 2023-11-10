@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    implementation("org.luckypray:dexkit:2.0.0-rc7")
+    implementation("io.github.biezhi:TinyPinyin:2.0.3.RELEASE")
     //API
     compileOnly("de.robv.android.xposed:api:82")
     implementation("com.github.kyuubiran:EzXHelper:1.0.3")

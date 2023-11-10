@@ -99,6 +99,34 @@ class AndroidPageForT : BasePage() {
                 tipsId = R.string.take_effect_after_reboot
             ), SwitchV("allow_untrusted_touches")
         )
+        val bindingDisableFixedOrientation =
+            GetDataBinding({
+                MIUIActivity.safeSP.getBoolean("disable_fixed_orientation", true)
+            }) { view, flags, data ->
+                when (flags) {
+                    1 -> view.visibility = if (data as Boolean) View.VISIBLE else View.GONE
+                }
+            }
+        TextSummaryWithSwitch(
+            TextSummaryV(
+                textId = R.string.disable_fixed_orientation,
+                tipsId = R.string.disable_fixed_orientation_tips
+            ),
+            SwitchV(
+                key = "disable_fixed_orientation",
+                defValue = false,
+                dataBindingSend = bindingDisableFixedOrientation.bindingSend
+            )
+        )
+        TextSummaryWithArrow(
+            TextSummaryV(
+                textId = R.string.disable_fixed_orientation_scope,
+                tipsId = R.string.disable_fixed_orientation_scope_tips
+            ) {
+                showFragment("disable_fixed_orientation")
+            },
+            dataBindingRecv = bindingDisableFixedOrientation.getRecv(1)
+        )
         Line()
         TitleText(textId = R.string.sound)
         val mediaVolumeStepsSwitchBinding = GetDataBinding({

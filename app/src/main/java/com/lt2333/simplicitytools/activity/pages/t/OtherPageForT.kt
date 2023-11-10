@@ -323,6 +323,12 @@ class OtherPageForT : BasePage() {
             TextSummaryV(textId = R.string.incallui_hide_crbt),
             SwitchV("incallui_hide_crbt")
         )
+        Line()
+        TitleText(textId = R.string.scope_mishare)
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.mishare_disable_auto_off),
+            SwitchV("mishare_disable_auto_off")
+        )
     }
 
 }

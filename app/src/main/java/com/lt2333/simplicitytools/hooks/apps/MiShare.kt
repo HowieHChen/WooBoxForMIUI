@@ -11,29 +11,25 @@ import com.lt2333.simplicitytools.hooks.rules.s.android.SystemPropertiesHookForS
 import com.lt2333.simplicitytools.hooks.rules.t.android.DisableFixedOrientation
 import com.lt2333.simplicitytools.hooks.rules.t.android.MaxWallpaperScaleForT
 import com.lt2333.simplicitytools.hooks.rules.t.android.SystemPropertiesHookForT
+import com.lt2333.simplicitytools.hooks.rules.t.mishare.NoAutoTurnOff
+import com.lt2333.simplicitytools.utils.DexKit
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-object Android : AppRegister() {
-    override val packageName: String = "android"
+object MiShare: AppRegister()  {
+    override val packageName: String = "com.miui.mishare.connectivity"
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
-        //核心破解
-        CorePatchMainHook().handleLoadPackage(lpparam)
         when (Build.VERSION.SDK_INT) {
             Build.VERSION_CODES.TIRAMISU -> {
+                DexKit.initDexKit(lpparam)
                 autoInitHooks(
                     lpparam,
-                    DisableFlagSecureForAll, //允许截图
-                    DeleteOnPostNotificationForAll, //上层显示
-                    RemoveSmallWindowRestrictionsForS, //解除小窗限制
-                    MaxWallpaperScaleForT, //壁纸缩放比例
-                    SystemPropertiesHookForT, //SystemPropertiesHook
-                    AllowUntrustedTouchesForAll, //允许不受信任的触摸
-                    DisableFixedOrientation, //禁用旋转锁定
+                    NoAutoTurnOff, // 禁用自动关闭
                 )
+                DexKit.closeDexKit()
             }
-
+            /*
             Build.VERSION_CODES.S -> {
                 autoInitHooks(
                     lpparam,
@@ -45,6 +41,8 @@ object Android : AppRegister() {
                     AllowUntrustedTouchesForAll, //允许不受信任的触摸
                 )
             }
+
+             */
         }
     }
 }

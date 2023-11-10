@@ -16,6 +16,7 @@
         <item>com.miui.packageinstaller</item>
         <item>com.miui.contentextension</item>
         <item>com.android.browser</item>
-        <item>"com.android.incallui"</item>
+        <item>com.android.incallui</item>
+        <item>com.miui.mishare.connectivity</item>
     </string-array>
 </resources>

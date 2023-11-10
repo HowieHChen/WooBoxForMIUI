@@ -33,6 +33,13 @@ object XSPUtils {
         }
         return prefs.getString(key, defValue)
     }
+
+    fun getStringSet(key: String, defValue: MutableSet<String>): MutableSet<String> {
+        if (prefs.hasFileChanged()) {
+            prefs.reload()
+        }
+        return prefs.getStringSet(key, defValue) ?: defValue
+    }
 }
 
 inline fun hasEnable(

@@ -49,7 +49,9 @@ class MenuPage : BasePage() {
                         "killall com.xiaomi.misubscreenui",
                         "killall com.miui.packageinstaller",
                         "killall com.miui.contentextension",
-                        "killall com.android.browser"
+                        "killall com.android.browser",
+                        "killall com.android.incallui",
+                        "killall com.miui.mishare.connectivity",
                     )
                     ShellUtils.execCommand(command, true)
                     dismiss()
