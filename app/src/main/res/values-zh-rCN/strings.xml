@@ -294,4 +294,6 @@
     <string name="clear">清空</string>
     <string name="mishare_disable_auto_off">禁止小米互传自动关闭</string>
     <string name="scope_mishare">小米互传</string>
+    <string name="scope_corepatch">核心破解</string>
+    <string name="browser_disable_update">禁止检查更新</string>
 </resources>

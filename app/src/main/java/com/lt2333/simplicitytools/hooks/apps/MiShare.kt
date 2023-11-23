@@ -1,16 +1,6 @@
 package com.lt2333.simplicitytools.hooks.apps
 
 import android.os.Build
-import com.lt2333.simplicitytools.hooks.rules.all.android.AllowUntrustedTouchesForAll
-import com.lt2333.simplicitytools.hooks.rules.all.android.DeleteOnPostNotificationForAll
-import com.lt2333.simplicitytools.hooks.rules.all.android.DisableFlagSecureForAll
-import com.lt2333.simplicitytools.hooks.rules.all.corepatch.CorePatchMainHook
-import com.lt2333.simplicitytools.hooks.rules.s.android.MaxWallpaperScaleForS
-import com.lt2333.simplicitytools.hooks.rules.s.android.RemoveSmallWindowRestrictionsForS
-import com.lt2333.simplicitytools.hooks.rules.s.android.SystemPropertiesHookForS
-import com.lt2333.simplicitytools.hooks.rules.t.android.DisableFixedOrientation
-import com.lt2333.simplicitytools.hooks.rules.t.android.MaxWallpaperScaleForT
-import com.lt2333.simplicitytools.hooks.rules.t.android.SystemPropertiesHookForT
 import com.lt2333.simplicitytools.hooks.rules.t.mishare.NoAutoTurnOff
 import com.lt2333.simplicitytools.utils.DexKit
 import com.lt2333.simplicitytools.utils.xposed.base.AppRegister

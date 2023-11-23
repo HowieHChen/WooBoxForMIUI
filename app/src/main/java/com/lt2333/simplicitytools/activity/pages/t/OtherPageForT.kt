@@ -317,6 +317,10 @@ class OtherPageForT : BasePage() {
             TextSummaryV(textId = R.string.browser_debug_mode),
             SwitchV("browser_debug_mode")
         )
+        TextSummaryWithSwitch(
+            TextSummaryV(textId = R.string.browser_disable_update),
+            SwitchV("browser_disable_update")
+        )
         Line()
         TitleText(textId = R.string.scope_incallui)
         TextSummaryWithSwitch(

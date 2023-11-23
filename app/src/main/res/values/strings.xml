@@ -281,6 +281,7 @@
     <string name="taplus_hide_shopping">Hide shopping button</string>
     <string name="scope_browser">Browser</string>
     <string name="browser_debug_mode">Enable browser developer mode</string>
+    <string name="browser_disable_update">Disable update checks</string>
     <string name="scope_incallui">Phone</string>
     <string name="incallui_hide_crbt">Hide personalized colorful ring back tone</string>
     <string name="pkg_disable_ad">Disable promotion</string>
@@ -301,4 +302,5 @@
     <string name="clear">Clear</string>
     <string name="scope_mishare">Mi Share</string>
     <string name="mishare_disable_auto_off">Disable automatic turn off of Mi Share</string>
+    <string name="scope_corepatch">CorePatch</string>
 </resources>
